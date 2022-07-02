@@ -216,9 +216,3 @@ client.on("messageCreate", message => {
         message.channel.send({embeds: [embed]})
     }
 });
-
-
-client.on("guildMemberAdd", member => {
-    if (member.user.bot) return
-    member.roles.add("988499438106460160")
-})
