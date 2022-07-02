@@ -74,10 +74,10 @@ function oraAttuale() {
     var minutes = new Date().getMinutes();
 
     var canale = client.channels.cache.get("987775840009994253")
-    if (hour == 15 && minutes == 17) {
+    if (hour == 12 && minutes == 47) {
         canale.send("Notifica")
     }
-    if (hour == 15 && minutes == 17) {
+    if (hour == 12 && minutes == 47) {
         var embed = new Discord.MessageEmbed()
         .setTitle("Casoo")
         .setDescription("casooo")
