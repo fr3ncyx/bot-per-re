@@ -216,3 +216,15 @@ client.on("messageCreate", message => {
         message.channel.send({embeds: [embed]})
     }
 });
+
+client.on("messageCreate", message => {
+    if (message.content == "!verifica") {
+        var embed = new Discord.MessageEmbed()
+        .setColor("#F636DF")
+        .setDescription("Dopo aver letto attentamente il regolamento interagisci con la reazione per iniziare")
+    message.channel.send({embeds: [embed]})
+        .then(msg => {
+            msg.react("👍")
+        })
+    }
+})
