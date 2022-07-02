@@ -73,9 +73,9 @@ function oraAttuale() {
     var hour = new Date().getHours();
     var minutes = new Date().getMinutes();
 
-    var canale = client.channels.cache.get("987775840009994253")
+    var canale = client.channels.cache.get("")
     if (hour == 13 && minutes == 27) {
-        canale.send("<@987775840009994250> Non segui ancora il re dei barbari sui vari social? Vai subito a farci un salto e lascia un bel follow!")
+        canale.send("<@&> Non segui ancora il re dei barbari sui vari social? Vai subito a farci un salto e lascia un bel follow!")
     }
     if (hour == 13 && minutes == 27) {
         var embed = new Discord.MessageEmbed()
@@ -95,4 +95,27 @@ function oraAttuale() {
     }
 }
 setInterval(oraAttuale, 1000*60);
+
+
+client.on("guildMemberAdd", member => {
+    if(member.user.bot) return
+    var embed = new Discord.MessageEmbed()
+        .setFooter({text: "Re_Dei_Barbari"})
+        .setImage("https://media.discordapp.net/attachments/987775840009994253/992784772332011571/Immagine_2022-07-02_153022.png")
+        .setDescription(`Ciao ${member.toString()}, benvenuto nel server di Re_Dei_Barbari`)
+        .setTimestamp()
+ 
+    client.channels.cache.get("987827065610960897").send({embeds: [embed]});
+});
+
+client.on("guildMemberRemove", member => {
+    if(member.user.bot) return
+    var embed = new Discord.MessageEmbed()
+        .setFooter({text: "Re_Dei_Barbari"})
+        .setImage("https://media.discordapp.net/attachments/987775840009994253/992784772332011571/Immagine_2022-07-02_153022.png")
+        .setDescription(`Addio ${member.toString()}, è uscito dal server che peccato`)
+        .setTimestamp()
+
+    client.channels.cache.get("988487931947778149").send({embeds: [embed]});
+})
 
