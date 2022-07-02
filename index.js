@@ -113,7 +113,7 @@ client.on("guildMemberRemove", member => {
     var embed = new Discord.MessageEmbed()
         .setFooter({text: "Re_Dei_Barbari"})
         .setImage("https://media.discordapp.net/attachments/987775840009994253/992784772332011571/Immagine_2022-07-02_153022.png")
-        .setDescription(`${member.toString()} è uscito dal server, Noooo sad...`)
+        .setDescription(`${member.toString()} è uscito dal server. Noooo sad...`)
         .setTimestamp()
 
     client.channels.cache.get("988487931947778149").send({embeds: [embed]});
@@ -220,5 +220,5 @@ client.on("messageCreate", message => {
 
 client.on("guildMemberAdd", member => {
     if (member.user.bot) return
-    member.roles.add("926240172272668693")
+    member.roles.add("987828808709185566")
 })
