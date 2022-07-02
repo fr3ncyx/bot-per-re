@@ -75,7 +75,7 @@ function oraAttuale() {
 
     var canale = client.channels.cache.get("987775840009994253")
     if (hour == 13 && minutes == 23) {
-        canale.send("<@&987775840009994250> Non segui ancora il re dei barbari sui vari social? Vai subito a farci un salto e lascia un bel follow!")
+        canale.send("<@987775840009994250> Non segui ancora il re dei barbari sui vari social? Vai subito a farci un salto e lascia un bel follow!")
     }
     if (hour == 13 && minutes == 23) {
         var embed = new Discord.MessageEmbed()
