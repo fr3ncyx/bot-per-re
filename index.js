@@ -253,7 +253,7 @@ client.on("interactionCreate", interaction => {
         interaction.guild.channels.create(interaction.user.username, {
             type: "text",
             topic: `User ID: ${interaction.user.id}`,
-            parent: "986769295927308378", 
+            parent: "987775840009994251", 
         }).then(canale => {
             canale.send("Grazie per aver aperto un ticket aspetta che <@&955823672709509160> ti risponda")
         })
