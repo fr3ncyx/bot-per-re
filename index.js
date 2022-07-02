@@ -102,7 +102,7 @@ client.on("guildMemberAdd", member => {
     var embed = new Discord.MessageEmbed()
         .setFooter({text: "Re_Dei_Barbari"})
         .setImage("https://media.discordapp.net/attachments/987775840009994253/992784772332011571/Immagine_2022-07-02_153022.png")
-        .setDescription(`Ciao ${member.toString()}, benvenuto nel server di Re_Dei_Barbari`)
+        .setDescription(`Hey ${member.toString()}, benvenuto nel server di Re_Dei_Barbari. Vai a leggere il regolamento in <#926237313279881316>`)
         .setTimestamp()
  
     client.channels.cache.get("987827065610960897").send({embeds: [embed]});
@@ -113,7 +113,7 @@ client.on("guildMemberRemove", member => {
     var embed = new Discord.MessageEmbed()
         .setFooter({text: "Re_Dei_Barbari"})
         .setImage("https://media.discordapp.net/attachments/987775840009994253/992784772332011571/Immagine_2022-07-02_153022.png")
-        .setDescription(`Addio ${member.toString()}, è uscito dal server che peccato`)
+        .setDescription(`${member.toString()} è uscito dal server, Noooo sad...`)
         .setTimestamp()
 
     client.channels.cache.get("988487931947778149").send({embeds: [embed]});
@@ -216,3 +216,9 @@ client.on("messageCreate", message => {
         message.channel.send({embeds: [embed]})
     }
 });
+
+
+client.on("guildMemberAdd", member => {
+    if (member.user.bot) return
+    member.roles.add("926240172272668693")
+})
