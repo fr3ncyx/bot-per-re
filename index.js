@@ -119,3 +119,100 @@ client.on("guildMemberRemove", member => {
     client.channels.cache.get("988487931947778149").send({embeds: [embed]});
 })
 
+client.on("messageCreate", message => {
+    if (message.content == "!ms") {
+        let embed = new Discord.MessageEmbed()
+            .setTitle("Ping del bot")
+            .setDescription("Ecco la latenza del bot")
+            .addField("Ping", `${client.ws.ping}ms`)
+
+        message.channel.send({embeds: [embed]})
+    }
+})
+
+client.on("messageCreate", message => {
+    if (message.content.startsWith("!clear")) {
+        if (!message.member.permissions.has("MANAGE_MESSAGES")) {
+            return message.channel.send('Non hai il permesso');
+        }
+        if (!message.guild.me.permissions.has("MANAGE_MESSAGES")) {
+            return message.channel.send('Non ho il permesso');
+        }
+        let count = parseInt(message.content.split(/\s+/)[1]);
+        if (!count) {
+            return message.channel.send("Inserisci un numero valido")
+        }
+        if (count > 500) {
+            return message.channel.send("Non puoi cancellare più di 200 messaggi")
+        }
+        message.channel.bulkDelete(count, true)
+        message.channel.send(count + " messaggi eliminati").then(msg => {
+            setTimeout(() => msg.delete(), 5000)
+        })
+    }
+});
+
+
+client.on("messageCreate", message => {
+    var parolacce = ["porco dio", "cazzo", "diocane", "dio cane","merda", "DIOCANE", "NEGRO", "n3gro", "negr0", "Negro", "Cazzo", "Porco dio", "Dio cane", "Porca madonna", "PORCA MADONNA","gay", "G4y", "GAY"]
+    var trovata = false; 
+
+    parolacce.forEach(parola => {
+        if (message.content.includes(parola)) {
+             trovata = true;
+        }
+    })
+
+    if(trovata) {
+        message.delete();
+        var utente = message.mentions.members.first();
+        var embed = new Discord.MessageEmbed()
+            .setTitle("Parola probita")
+            .setDescription(`Hai scritto una parola proibita`)
+        
+        message.channel.send({embeds: [embed]})
+    }
+});
+
+client.on("messageCreate", message => {
+    if (message.content.startsWith("!benvenuto")) {
+        if (message.content == "!benvenuto") {
+            var utente = message.member;
+        }
+        else {
+            var utente = message.mentions.members.first();
+        }
+
+        if (!utente) {
+            message.channel.send("Non ho trovato questo utente")
+            return
+        }
+
+        var elencoPermessi = "";
+        if (utente.permissions.has("ADMINISTRATOR")) {
+            elencoPermessi = "👑 ADMINISTRATOR";
+        }
+        else {
+            var permessi = ["CREATE_INSTANT_INVITE", "KICK_MEMBERS", "BAN_MEMBERS", "MANAGE_CHANNELS", "MANAGE_GUILD", "ADD_REACTIONS", "VIEW_AUDIT_LOG", "PRIORITY_SPEAKER", "STREAM", "VIEW_CHANNEL", "SEND_MESSAGES", "SEND_TTS_MESSAGES", "MANAGE_MESSAGES", "EMBED_LINKS", "ATTACH_FILES", "READ_MESSAGE_HISTORY", "MENTION_EVERYONE", "USE_EXTERNAL_EMOJIS", "VIEW_GUILD_INSIGHTS", "CONNECT", "SPEAK", "MUTE_MEMBERS", "DEAFEN_MEMBERS", "MOVE_MEMBERS", "USE_VAD", "CHANGE_NICKNAME", "MANAGE_NICKNAMES", "MANAGE_ROLES", "MANAGE_WEBHOOKS"]
+
+            for (var i = 0; i < permessi.length; i++) {
+                if (utente.permissions.has(permessi[i])) {
+                    elencoPermessi += "- " + permessi[i] + "\r";
+                }
+            }
+        }
+
+        var embed = new Discord.MessageEmbed()
+            .setTitle(utente.user.tag)
+            .setDescription("Tutte le info di questo utente")
+            .setThumbnail(utente.user.avatarURL())
+            .addField("User id", "```" + utente.user.id + "```", true)
+            .addField("E' un bot?", utente.user.bot ? "```Yes```" : "```No```", true)
+            .addField("Account creato", "```" + utente.user.createdAt.toDateString() + "```", true)
+            .addField("Entrato nel server", "```" + utente.joinedAt.toDateString() + "```", true)
+            .addField("Permessi", "```" + elencoPermessi + "```", false)
+            .addField("Ruoli", "```" + utente.roles.cache.map(ruolo => ruolo.name).join("\r") + "```", false)
+
+        message.channel.send({embeds: [embed]})
+    }
+});
