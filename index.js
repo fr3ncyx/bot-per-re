@@ -275,7 +275,7 @@ client.on("interactionCreate", interaction => {
         interaction.guild.channels.create(interaction.user.username, {
             type: "text",
             topic: `User ID: ${interaction.user.id}`,
-            parent: "987775840009994251", 
+            parent: "926442508462997565", 
         }).then(canale => {
             canale.send("Grazie per aver aperto un ticket aspetta che un moderatore ti risponda")
         })
