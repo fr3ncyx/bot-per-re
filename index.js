@@ -80,8 +80,8 @@ function oraAttuale() {
     if (hour == 15 && minutes == 28) {
         var embed = new Discord.MessageEmbed()
         .setColor("#7B3473")
-        .setTitle("Twich")
-        .setDescription("Segui il re dei barbari su twich!")
+        .setTitle("Twitch")
+        .setDescription("Segui il re dei barbari su Twitch!")
         .setURL("https://www.twitch.tv/re_dei_barbari")
     canale.send({embeds: [embed]})
     }
@@ -89,7 +89,7 @@ function oraAttuale() {
         var embed = new Discord.MessageEmbed()
         .setColor("#F636DF")
         .setTitle("Instagram")
-        .setDescription("Segui il re dei barbari su instagram")
+        .setDescription("Segui il Re_Dei_Barbari su Instagram")
         .setURL("https://www.instagram.com/re_dei_barbari/")
     canale.send({embeds: [embed]})
     }
@@ -105,7 +105,7 @@ client.on("guildMemberAdd", member => {
         .setDescription(`Hey ${member.toString()}, benvenuto nel server di Re_Dei_Barbari. Vai a leggere il regolamento in <#926237313279881316>`)
         .setTimestamp()
  
-    client.channels.cache.get("987827065610960897").send({embeds: [embed]});
+    client.channels.cache.get("938431906725396500").send({embeds: [embed]});
 });
 
 client.on("guildMemberRemove", member => {
@@ -228,6 +228,20 @@ client.on("messageCreate", message => {
         })
     }
 })
+
+client.on("messageReactionRemove", async function (messageReaction, user) {
+    if (user.bot) return;
+
+    if (messageReaction.message.partial) await messageReaction.message.fetch();
+
+    if (messageReaction.message.id == "992045785426427994") {
+        if (messageReaction._emoji.name == "👍") {
+            var utente = messageReaction.message.guild.members.cache.find(x => x.id == user.id);
+            utente.roles.remove("988499438106460160");
+        }
+    }
+})
+
 
 client.on("messageCreate", message => {
     if (message.content == "!ticket") {
@@ -358,3 +372,4 @@ client.on("messageCreate", message => {
     message.channel.send({embeds: [embed]})    
     }
 })
+
