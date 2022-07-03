@@ -347,3 +347,14 @@ client.on("messageCreate", message => {
         }
     }
 });
+
+client.on("messageCreate", message => {
+    if (message.content == "!versionebot") {
+        var embed = new Discord.MessageEmbed()
+        .setColor("#F636DF")
+        .setTitle("Versione bot")
+        .setDescription("Ecco la versione del bot attuale: v1.0")
+
+    message.channel.send({embeds: [embed]})    
+    }
+})
