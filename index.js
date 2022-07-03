@@ -74,24 +74,24 @@ function oraAttuale() {
     var minutes = new Date().getMinutes();
 
     var canale = client.channels.cache.get("")
-    if (hour == 15 && minutes == 20) {
+    if (hour == 15 && minutes == 25) {
         canale.send("Non segui ancora il re dei barbari sui vari social? Vai subito a farci un salto e lascia un bel follow!")
     }
-    if (hour == 15 && minutes == 20) {
+    if (hour == 15 && minutes == 25) {
         var embed = new Discord.MessageEmbed()
         .setColor("#7B3473")
         .setTitle("Twich")
         .setDescription("Segui il re dei barbari su twich!")
         .setURL("https://www.twitch.tv/re_dei_barbari")
-        canale.send({embeds: [embed]})
+    canale.send({embeds: [embed]})
     }
-    if (hour == 15 && minutes == 20) {
+    if (hour == 15 && minutes == 25) {
         var embed = new Discord.MessageEmbed()
         .setColor("#F636DF")
         .setTitle("Instagram")
         .setDescription("Segui il re dei barbari su instagram")
         .setURL("https://www.instagram.com/re_dei_barbari/")
-        canale.send({embeds: [embed]})
+    canale.send({embeds: [embed]})
     }
 }
 setInterval(oraAttuale, 1000*60);
