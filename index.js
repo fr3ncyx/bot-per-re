@@ -111,7 +111,7 @@ client.on("guildMemberRemove", member => {
         .setDescription(`${member.toString()} è uscito dal server. Noooo sad...`)
         .setTimestamp()
 
-    client.channels.cache.get("988487931947778149").send({embeds: [embed]});
+    client.channels.cache.get("941747279709220914").send({embeds: [embed]});
 })
 
 client.on("messageCreate", message => {
