@@ -74,10 +74,10 @@ function oraAttuale() {
     var minutes = new Date().getMinutes();
 
     var canale = client.channels.cache.get("")
-    if (hour == 13 && minutes == 27) {
-        canale.send("<@&> Non segui ancora il re dei barbari sui vari social? Vai subito a farci un salto e lascia un bel follow!")
+    if (hour == 15 && minutes == 20) {
+        canale.send("Non segui ancora il re dei barbari sui vari social? Vai subito a farci un salto e lascia un bel follow!")
     }
-    if (hour == 13 && minutes == 27) {
+    if (hour == 15 && minutes == 20) {
         var embed = new Discord.MessageEmbed()
         .setColor("#7B3473")
         .setTitle("Twich")
@@ -85,7 +85,7 @@ function oraAttuale() {
         .setURL("https://www.twitch.tv/re_dei_barbari")
         canale.send({embeds: [embed]})
     }
-    if (hour == 13 && minutes == 27) {
+    if (hour == 15 && minutes == 20) {
         var embed = new Discord.MessageEmbed()
         .setColor("#F636DF")
         .setTitle("Instagram")
