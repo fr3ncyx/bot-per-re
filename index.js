@@ -97,7 +97,7 @@ client.on("guildMemberAdd", member => {
     var embed = new Discord.MessageEmbed()
         .setFooter({text: "Re_Dei_Barbari"})
         .setImage("https://media.discordapp.net/attachments/987775840009994253/992784772332011571/Immagine_2022-07-02_153022.png")
-        .setDescription(`Hey ${member.toString()}, benvenuto nel server di Re_Dei_Barbari. Vai a leggere il regolamento in <#926237313279881316>`)
+        .setDescription(`Hey ${member.toString()}, benvenuto nel server di 𝚁𝙴𝙳𝙴𝙸𝙱𝙰𝚁𝙱𝙰𝚁𝙸! Vai a leggere il regolamento in <#926237313279881316>`)
         .setTimestamp()
  
     client.channels.cache.get("938431906725396500").send({embeds: [embed]});
