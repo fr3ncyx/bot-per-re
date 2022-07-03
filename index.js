@@ -18,11 +18,6 @@ client.on("ready", () => {
     });
 })
 
-client.on("guildMemberAdd", member => {
-    if (member.user.bot) return
-    member.roles.add("");
-});
-
 client.on("messageCreate", message => {
     if (message.content.startsWith("!ban")) {
         let utente = message.mentions.members.first();
@@ -154,7 +149,7 @@ client.on("messageCreate", message => {
 
 
 client.on("messageCreate", message => {
-    var parolacce = ["porco dio", "cazzo", "diocane", "dio cane","merda", "DIOCANE", "NEGRO", "n3gro", "negr0", "Negro", "Cazzo", "Porco dio", "Dio cane", "Porca madonna", "PORCA MADONNA","gay", "G4y", "GAY"]
+    var parolacce = ["porco dio", "cazzo", "diocane", "dio cane","merda", "DIOCANE", "NEGRO", "n3gro", "negr0", "Negro", "Cazzo", "Porco dio", "Dio cane", "Porca madonna", "PORCA MADONNA","gay", "G4y", "GAY", "Cancro","Gay", "c4ncro", "C4ncro"]
     var trovata = false; 
 
     parolacce.forEach(parola => {
