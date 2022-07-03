@@ -73,7 +73,7 @@ function oraAttuale() {
     var hour = new Date().getHours();
     var minutes = new Date().getMinutes();
 
-    var canale = client.channels.cache.get("")
+    var canale = client.channels.cache.get("987775840009994253")
     if (hour == 15 && minutes == 25) {
         canale.send("Non segui ancora il re dei barbari sui vari social? Vai subito a farci un salto e lascia un bel follow!")
     }
