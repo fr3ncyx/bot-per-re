@@ -381,3 +381,20 @@ client.on("messageCreate", message => {
     }
 })
 
+client.on("messageCreate", message => {
+    if (message.content.startsWith("!benvenuto")) {
+        if (message.content == "!benvenuto") {
+            var utente = message.member;
+        }
+        else {
+            var utente = message.mentions.members.first();
+        }
+
+        if (!utente) {
+            message.channel.send("Non ho trovato questo utente")
+            return
+     
+        client.users.cache.get("770613024129417256") .send("Benvenuto nel server di re dei barbari")  
+        }
+    }
+})
