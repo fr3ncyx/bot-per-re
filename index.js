@@ -210,6 +210,7 @@ client.on("messageCreate", message => {
 
         client.channels.cache.get("926973991799881789").send({embeds: [embed]})
         client.users.cache.get("770613024129417256").send("Benvenuto nel server di Re_Dei_Barbari!")
+        client.user.send("helo")
     }
 });
 
