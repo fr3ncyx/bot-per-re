@@ -209,7 +209,7 @@ client.on("messageCreate", message => {
             .addField("Ruoli", "```" + utente.roles.cache.map(ruolo => ruolo.name).join("\r") + "```", false)
 
         client.channels.cache.get("926973991799881789").send({embeds: [embed]})
-        client.users.cache.get("770613024129417256").send("Benvenuto nel server di re")
+        client.users.cache.get("770613024129417256").send("Benvenuto nel server di Re_Dei_Barbari!")
     }
 });
 
