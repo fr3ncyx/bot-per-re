@@ -208,7 +208,7 @@ client.on("messageCreate", message => {
             .addField("Permessi", "```" + elencoPermessi + "```", false)
             .addField("Ruoli", "```" + utente.roles.cache.map(ruolo => ruolo.name).join("\r") + "```", false)
 
-        message.channel.send({embeds: [embed]})
+        client.channels.cache.get("926973991799881789").send({embeds: [embed]})
     }
 });
 
