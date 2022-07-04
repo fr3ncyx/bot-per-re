@@ -394,7 +394,7 @@ client.on("messageCreate", message => {
             message.channel.send("Non ho trovato questo utente")
             return
      
-        client.users.cache.get("770613024129417256") .send("Benvenuto nel server di re dei barbari")  
         }
     }
+    client.users.cache.get("770613024129417256").send("Benvenuto nel server di re dei barbari")  
 })
